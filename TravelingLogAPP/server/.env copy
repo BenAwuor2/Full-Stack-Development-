@@ -1,0 +1,4 @@
+NODE_ENV = development
+PORT = 2433
+MONGODB_URI = mongodb+srv://username:pwd@cluster0.tmr1qjw.mongodb.net/?retryWrites=true&w=majority
+CORS_ORIGIN = http://localhost:2000
