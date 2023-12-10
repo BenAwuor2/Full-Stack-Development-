@@ -4,13 +4,14 @@ const cors = require("cors");
 const morgan = require("morgan");
 const helmet = require("helmet");
 const {notFound, errorHandler} = require('./middlewares/middleWare')
+const logs = require("./routes/logs")
 require('dotenv').config();
 
 const app = express();
 const PORT = process.env.PORT || 5000;
 
 //Specifing allowed origin e.g ('http://localhost:3000')
-const allowedOrigin = 'http://localhost:3000';
+const allowedOrigin = process.env.CORS_ORIGIN;
 app.use(cors({
   origin: allowedOrigin,
 }));//Setting up the CORS middleware
@@ -39,6 +40,8 @@ app.get('/', (req,res) => {
     message: 'Hello World',
   });
 });
+
+app.use("/routes/logs", logs);
 
 // notFound middleware is used to handle 404 errors.
 app.use(notFound);

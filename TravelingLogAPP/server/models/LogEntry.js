@@ -32,14 +32,25 @@ const logEntrySchema = new mongoose.Schema({
         max: 10,
         default: 0,
       },
-    latitude: requiredNumber,
-    longitude: requiredNumber,
+    latitude: {
+      ...requiredNumber,
+      min: -90,
+      max: 90,
+    },
+    longitude: {
+      ...requiredNumber,
+      min: -180,
+      max:180,
+    },
     visitDate: {
         type: Date,
         required: true,
     },
-    timestamps: true,
+   
+},
+{
+  timestamps: true, // Automatically add 'createdAt' and 'updatedAt' timestamps
 });
 
-const User = mongoose.model('User', logEntrySchema);
-module.exports = User;
+const logEntry = mongoose.model('logEntry', logEntrySchema);
+module.exports = logEntry;
