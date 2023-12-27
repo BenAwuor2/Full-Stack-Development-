@@ -127,7 +127,7 @@ function App() {
               onClose={() => setAddEntryLocation(null)}
               >
              <div className='popup'>
-                <LogEntryForm/>
+                <LogEntryForm location={addEntryLocation}/>
              </div>
           </Popup>
       </> ): null
