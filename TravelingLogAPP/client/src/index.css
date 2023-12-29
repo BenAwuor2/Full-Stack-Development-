@@ -15,6 +15,9 @@ body {
   max-width: 400px;
   padding: 1rem;
 }
+.popup img{
+  width: 100%;
+}
 .entry-form label, 
 .entry-form input, 
 .entry-form textarea,
